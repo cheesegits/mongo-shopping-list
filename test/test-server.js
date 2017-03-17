@@ -11,18 +11,14 @@ var app = server.app;
 
 chai.use(chaiHttp);
 
+
 describe('Shopping List', function() {
     before(function(done) {
         server.runServer(function() {
-            Item.create({
-                name: 'Broad beans'
-            }, {
-                name: 'Tomatoes'
-            }, {
-                name: 'Peppers'
-            }, function() {
-                done();
-            });
+            Item.create({ name: 'Broad beans' }, function() { console.log(1) });
+            Item.create({ name: 'Peppers' }, function() { console.log(2) });
+            Item.create({ name: 'Tomatoes' }, function() { console.log(3) });
+            done();
         });
     });
     it('should list items on GET', function(done) {
@@ -40,9 +36,9 @@ describe('Shopping List', function() {
                 res.body[0].should.have.property('name');
                 res.body[0]._id.should.be.a('string');
                 res.body[0].name.should.be.a('string');
-                res.body[0].name.should.equal('Broad beans');
-                res.body[1].name.should.equal('Tomatoes');
-                res.body[2].name.should.equal('Peppers');
+                res.body[0].name.should.equal('Broad beans'); // Shows up as res.body[0]
+                res.body[2].name.should.equal('Tomatoes'); // Shows up as res.body[2]
+                res.body[1].name.should.equal('Peppers'); // Shows up as res.body [1]
                 done();
             });
     });
