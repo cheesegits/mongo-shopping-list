@@ -36,9 +36,6 @@ describe('Shopping List', function() {
                 res.body[0].should.have.property('name');
                 res.body[0]._id.should.be.a('string');
                 res.body[0].name.should.be.a('string');
-                res.body[0].name.should.equal('Broad beans'); // Shows up as res.body[0]
-                res.body[2].name.should.equal('Tomatoes'); // Shows up as res.body[2]
-                res.body[1].name.should.equal('Peppers'); // Shows up as res.body [1]
                 done();
             });
     });
