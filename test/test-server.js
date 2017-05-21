@@ -18,6 +18,8 @@ describe('Shopping List', function() {
             Item.create({ name: 'Broad beans' }, function() { console.log(1) });
             Item.create({ name: 'Peppers' }, function() { console.log(2) });
             Item.create({ name: 'Tomatoes' }, function() { console.log(3) });
+            Item.create({ name: 'Bananas' }, function() { console.log(4) });
+            Item.create({ name: 'Oranges' }, function() { console.log(5) });
             done();
         });
     });
